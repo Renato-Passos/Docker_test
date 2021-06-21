@@ -1,0 +1,14 @@
+version: "3.9"  
+services:
+  db:
+    image: mysql-db-img/tatosteps:1.0
+    container_name: mysql-container2
+    restart: always
+  web:
+    image: node-app-img
+    container_name: node-container2
+    ports:
+      - "5000:9001"
+    depends_on: 
+      - db
+    restart: on-failure
